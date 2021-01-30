@@ -45,3 +45,20 @@ class OfferSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'name', 'description')
 
 
+class OrderItemSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.OrderItem
+        fields = ('id', 'offer', 'item', 'quantity', 'item_price')
+
+
+class PlacedOrderSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.PlacedOrder
+        fields = ('id', 'total_price', 'user')
+
+
+class StatusSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.Status
+        fields = ('id', 'name')
+

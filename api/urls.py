@@ -8,6 +8,9 @@ router.register(r'categories', views.CategoryViewSet)
 router.register(r'sizes', views.SizeViewSet)
 router.register(r'menu_items', views.MenuItemViewSet)
 router.register(r'offers', views.OfferViewSet)
+router.register(r'order-items', views.OrderItemViewSet)
+router.register(r'placed-orders', views.PlacedOrderViewSet)
+router.register(r'status', views.StatusViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

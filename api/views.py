@@ -53,3 +53,17 @@ class OfferViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.OfferSerializer
 
 
+class OrderItemViewSet(viewsets.ModelViewSet):
+    queryset = models.OrderItem.objects.all().order_by('id')
+    serializer_class = serializers.OrderItemSerializer
+
+
+class PlacedOrderViewSet(viewsets.ModelViewSet):
+    queryset = models.PlacedOrder.objects.all().order_by('id')
+    serializer_class = serializers.PlacedOrderSerializer
+
+
+class StatusViewSet(viewsets.ModelViewSet):
+    queryset = models.Status.objects.all().order_by('id')
+    serializer_class = serializers.StatusSerializer
+
