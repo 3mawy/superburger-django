@@ -60,6 +60,9 @@ class MenuItemSize(models.Model):
     class Meta:
         db_table = "menu_items_sizes"
 
+    def __str__(self):
+        return str(self.menu_item) + ' ' + str(self.size)
+
 
 class Offer(models.Model):
     name = models.CharField(max_length=200)
@@ -98,6 +101,9 @@ class PlacedOrder(models.Model):
     class Meta:
         db_table = "placed_orders"
 
+    def __str__(self):
+        return str(self.id)
+
 
 class OrderStatus(models.Model):
     timestamp = models.TimeField(auto_now=True)
@@ -120,3 +126,7 @@ class OrderItem(models.Model):
 
     class Meta:
         db_table = "order_items"
+
+    def __str__(self):
+        return 'from placed order num ' + str(self.placed_order)
+
