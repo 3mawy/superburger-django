@@ -1,3 +1,8 @@
+from django.shortcuts import render
+from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
@@ -27,6 +32,10 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 # Create your views here.
 
+# @api_view(['GET', 'POST'])
+# def api_overview(request):
+#     return Response("API BASE POINT", safe=False)
+
 
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = models.Task.objects.all().order_by('id')
@@ -46,6 +55,7 @@ class SizeViewSet(viewsets.ModelViewSet):
 class MenuItemViewSet(viewsets.ModelViewSet):
     queryset = models.MenuItem.objects.all().order_by('id')
     serializer_class = serializers.MenuItemSerializer
+    filterset_fields = ['category']
 
 
 class OfferViewSet(viewsets.ModelViewSet):

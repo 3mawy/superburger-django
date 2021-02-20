@@ -36,7 +36,7 @@ class SizeSerializer(serializers.HyperlinkedModelSerializer):
 class MenuItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.MenuItem
-        fields = ('id', 'name', 'description')
+        fields = '__all__'
 
 
 class OfferSerializer(serializers.HyperlinkedModelSerializer):
@@ -48,13 +48,13 @@ class OfferSerializer(serializers.HyperlinkedModelSerializer):
 class OrderItemSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.OrderItem
-        fields = ('id', 'offer', 'item', 'quantity', 'item_price')
+        fields = '__all__'
 
 
 class PlacedOrderSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.PlacedOrder
-        fields = ('id', 'total_price', 'user')
+        fields = '__all__'
 
 
 class StatusSerializer(serializers.HyperlinkedModelSerializer):
