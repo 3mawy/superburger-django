@@ -12,7 +12,7 @@ from api.serializers import UserSerializer, GroupSerializer, MenuItemSerializer,
 
 from . import serializers
 from . import models
-from .models import Size, PlacedOrder, Address, Customer, Status, OrderItem, MenuItem, MenuItemSize
+from .models import Size, PlacedOrder, Address, Customer, Status, OrderItem, MenuItem, MenuItemSize, Offer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -67,7 +67,6 @@ def post_order(request):
     grand_total = 0
 
     placed_order = json_test.get('placed_order')
-
     order_time = placed_order.get('order_time')
     delivery = placed_order.get('delivery')
     delivery_notes = placed_order.get('delivery_notes')
@@ -86,14 +85,21 @@ def post_order(request):
         size = order_item.get('size')
         comments = order_item.get('comments')
         placed_order = order
-        item = MenuItem.objects.get(pk=order_item.get('item'))
-        item_size = MenuItemSize.objects.get(menu_item=item, size=size)
-        item_price = item_size.price
-        total_item_price = item_price * quantity
-        OrderItem.objects.create(quantity=quantity, item_price=item_price, total_price=total_item_price,
+        if order_item.get('item'):
+            item = MenuItem.objects.get(pk=order_item.get('item'))
+            offer = None
+            item_size = MenuItemSize.objects.get(menu_item=item, size=size)
+            price = item_size.price
+        else:
+            offer = Offer.objects.get(pk=order_item.get('offer'))
+            item = None
+            price = offer.price
+
+        total_price = price * quantity
+        OrderItem.objects.create(quantity=quantity, item_price=price, total_price=total_price,
                                  comments=comments, placed_order=placed_order,
-                                 item=item, )
-        grand_total = grand_total + total_item_price
+                                 item=item, offer=offer)
+        grand_total = grand_total + total_price
     order.total_price = grand_total
     order.save()
     return Response({"message": "order and order items added Successfully!", "data": "a"})
