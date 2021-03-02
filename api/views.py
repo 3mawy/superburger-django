@@ -1,15 +1,18 @@
-from django.shortcuts import render
-from django.http import JsonResponse
-from rest_framework.decorators import api_view
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import OrderingFilter
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 
 from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
+from rest_framework import viewsets, authentication
 from rest_framework import permissions
-from api.serializers import UserSerializer, GroupSerializer
+from rest_framework.views import APIView
+
+from api.serializers import UserSerializer, GroupSerializer, MenuItemSerializer, PlacedOrderSerializer
 
 from . import serializers
 from . import models
+from .models import Size, PlacedOrder, Address, Customer, Status, OrderItem, MenuItem, MenuItemSize
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -36,10 +39,64 @@ class GroupViewSet(viewsets.ModelViewSet):
 # def api_overview(request):
 #     return Response("API BASE POINT", safe=False)
 
+json_test = {
+    "placed_order": {
+        "order_time": "04:14:49.289732",
+        "delivery": True,
+        "delivery_notes": "ggg",
+        "complete": False,
+        "delivery_address": 1,
+        "customer": 1,
+        "order_items": [],
+        "status": 1
+    },
+    "order_items": [{
+        "quantity": 2,
+        "size": 3,
+        "comments": "aa",
+        "placed_order": 1,
+        "offer": None,
+        "item": 1
+    }]
+}
 
-class TaskViewSet(viewsets.ModelViewSet):
-    queryset = models.Task.objects.all().order_by('id')
-    serializer_class = serializers.TaskSerializer
+
+@api_view(['POST'])
+@permission_classes((permissions.AllowAny,))
+def post_order(request):
+    grand_total = 0
+
+    placed_order = json_test.get('placed_order')
+
+    order_time = placed_order.get('order_time')
+    delivery = placed_order.get('delivery')
+    delivery_notes = placed_order.get('delivery_notes')
+    complete = placed_order.get('complete')
+    delivery_address = Address.objects.get(pk=placed_order.get('delivery_address'))
+    customer = Customer.objects.get(pk=placed_order.get('customer'))
+    status = Status.objects.get(pk=placed_order.get('status'))
+
+    order = PlacedOrder.objects.create(order_time=order_time, delivery=delivery, delivery_notes=delivery_notes,
+                                       complete=complete, total_price=0, delivery_address=delivery_address,
+                                       customer=customer, status=status)
+
+    order_items = json_test.get('order_items')
+    for order_item in order_items:
+        quantity = order_item.get('quantity')
+        size = order_item.get('size')
+        comments = order_item.get('comments')
+        placed_order = order
+        item = MenuItem.objects.get(pk=order_item.get('item'))
+        item_size = MenuItemSize.objects.get(menu_item=item, size=size)
+        item_price = item_size.price
+        total_item_price = item_price * quantity
+        OrderItem.objects.create(quantity=quantity, item_price=item_price, total_price=total_item_price,
+                                 comments=comments, placed_order=placed_order,
+                                 item=item, )
+        grand_total = grand_total + total_item_price
+    order.total_price = grand_total
+    order.save()
+    return Response({"message": "order and order items added Successfully!", "data": "a"})
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
@@ -52,10 +109,17 @@ class SizeViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.SizeSerializer
 
 
+class MenuItemSizeViewSet(viewsets.ModelViewSet):
+    queryset = models.MenuItemSize.objects.all().order_by('id')
+    serializer_class = serializers.MenuItemSizeSerializer
+
+
 class MenuItemViewSet(viewsets.ModelViewSet):
     queryset = models.MenuItem.objects.all().order_by('id')
     serializer_class = serializers.MenuItemSerializer
+    filter_backends = (OrderingFilter, DjangoFilterBackend)
     filterset_fields = ['category']
+    ordering_fields = ('sizes', 'score')
 
 
 class OfferViewSet(viewsets.ModelViewSet):
@@ -77,3 +141,17 @@ class StatusViewSet(viewsets.ModelViewSet):
     queryset = models.Status.objects.all().order_by('id')
     serializer_class = serializers.StatusSerializer
 
+
+class CustomerViewSet(viewsets.ModelViewSet):
+    queryset = models.Customer.objects.all().order_by('id')
+    serializer_class = serializers.CustomerSerializer
+
+
+class AreaViewSet(viewsets.ModelViewSet):
+    queryset = models.Area.objects.all().order_by('id')
+    serializer_class = serializers.AreaSerializer
+
+
+class AddressViewSet(viewsets.ModelViewSet):
+    queryset = models.Address.objects.all().order_by('id')
+    serializer_class = serializers.AddressSerializer
