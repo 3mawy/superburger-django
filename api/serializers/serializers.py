@@ -1,9 +1,8 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from rest_framework.relations import PrimaryKeyRelatedField
 
-from . import models
-from .models import Category, Size, MenuItemSize, PlacedOrder, Status, Customer, OrderItem
+from api import models
+from api.models import PlacedOrder, Status, Customer, OrderItem
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -16,12 +15,6 @@ class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
         fields = ['url', 'name']
-
-
-class TaskSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = models.Task
-        fields = ('id', 'title', 'completed')
 
 
 class CategorySerializer(serializers.ModelSerializer):

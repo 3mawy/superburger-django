@@ -1,5 +1,5 @@
 from django.test import TestCase
-from models import MenuItem
+from api.models import MenuItem
 
 
 # Create your tests here.

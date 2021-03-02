@@ -16,6 +16,7 @@ class Customer(models.Model):
 
 class Area(models.Model):
     area = models.CharField(max_length=100, null=False)
+    delivery_fees = models.DecimalField(max_digits=3, decimal_places=1)
 
     class Meta:
         db_table = "areas"
