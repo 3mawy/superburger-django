@@ -1,12 +1,13 @@
-from .models import Customer
-from .models import Area
-from .models import Address
-from .models import Task
-from .models import Category
-from .models import Size
-from .models import MenuItem
-from .models import MenuItemSize
-from .models import Offer
-from .models import Status
-from .models import PlacedOrder
-from .models import OrderItem
+from .Customer import Customer
+from .Customer import Address
+from .Customer import Area
+
+from .MenuItem import Size
+from .MenuItem import MenuItem
+from .MenuItem import MenuItemSize
+
+from .Offer import Offer
+from .Status import Status
+from .Category import Category
+from .OrderItem import OrderItem
+from .PlacedOrder import PlacedOrder
