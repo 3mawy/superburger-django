@@ -11,6 +11,7 @@ django-extensions = "*"
 django-cors-headers = "*"
 django-filter = "*"
 django-seed = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 

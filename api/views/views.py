@@ -1,7 +1,6 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import OrderingFilter
 
-
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
@@ -41,16 +40,19 @@ class GroupViewSet(viewsets.ModelViewSet):
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = models.Category.objects.all().order_by('id')
     serializer_class = serializers.CategorySerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class SizeViewSet(viewsets.ModelViewSet):
     queryset = models.Size.objects.all().order_by('id')
     serializer_class = serializers.SizeSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class MenuItemSizeViewSet(viewsets.ModelViewSet):
     queryset = models.MenuItemSize.objects.all().order_by('id')
     serializer_class = serializers.MenuItemSizeSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class MenuItemViewSet(viewsets.ModelViewSet):
@@ -59,24 +61,27 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     filter_backends = (OrderingFilter, DjangoFilterBackend)
     filterset_fields = ['category']
     ordering_fields = ('sizes', 'score')
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class OfferViewSet(viewsets.ModelViewSet):
     queryset = models.Offer.objects.all().order_by('id')
     serializer_class = serializers.OfferSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class OrderItemViewSet(viewsets.ModelViewSet):
     queryset = models.OrderItem.objects.all().order_by('id')
     serializer_class = serializers.OrderItemSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class PlacedOrderViewSet(viewsets.ModelViewSet):
     queryset = models.PlacedOrder.objects.all().order_by('id')
     serializer_class = serializers.PlacedOrderSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-
         user = self.request.user
         return PlacedOrder.objects.filter(customer__user=user)
 
@@ -84,18 +89,22 @@ class PlacedOrderViewSet(viewsets.ModelViewSet):
 class StatusViewSet(viewsets.ModelViewSet):
     queryset = models.Status.objects.all().order_by('id')
     serializer_class = serializers.StatusSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = models.Customer.objects.all().order_by('id')
     serializer_class = serializers.CustomerSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class AreaViewSet(viewsets.ModelViewSet):
     queryset = models.Area.objects.all().order_by('id')
     serializer_class = serializers.AreaSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class AddressViewSet(viewsets.ModelViewSet):
     queryset = models.Address.objects.all().order_by('id')
     serializer_class = serializers.AddressSerializer
+    permission_classes = [permissions.IsAuthenticated]

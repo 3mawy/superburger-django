@@ -11,7 +11,7 @@ json_test = {
         "delivery_notes": "ggg",
         "complete": False,
         "delivery_address": 1,
-        "customer": 2,
+        # "customer": 2,
         "status": 1
     },
     "order_items": [{
@@ -26,7 +26,7 @@ json_test = {
 
 
 @api_view(['POST'])
-@permission_classes((permissions.AllowAny,))
+@permission_classes((permissions.IsAuthenticated,))
 def post_order(request):
     grand_total = 0
 
@@ -36,7 +36,9 @@ def post_order(request):
     delivery_notes = placed_order.get('delivery_notes')
     complete = placed_order.get('complete')
     delivery_address = Address.objects.get(pk=placed_order.get('delivery_address'))
-    customer = Customer.objects.get(pk=placed_order.get('customer'))
+    user = request.user.id
+    customer = Customer.objects.filter(user__id=user).get()
+    # customer = Customer.objects.get(pk=placed_order.get('customer'))
     status = Status.objects.get(pk=placed_order.get('status'))
 
     order = PlacedOrder.objects.create(order_time=order_time, delivery=delivery, delivery_notes=delivery_notes,
