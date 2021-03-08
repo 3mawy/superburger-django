@@ -28,7 +28,7 @@ def post_order(request):
 
     order_items = request.data['order_items']
     for order_item in order_items:
-        quantity = order_item.get('quantity')
+        quantity = order_item.get('quantity', 1)
         item = order_item.get('item')
         offer = order_item.get('offer')
         size = order_item.get('size')
