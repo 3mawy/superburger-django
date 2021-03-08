@@ -4,6 +4,7 @@ from rest_framework.filters import OrderingFilter
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
+from rest_framework.response import Response
 
 from api.serializers import UserSerializer, GroupSerializer
 
@@ -19,6 +20,12 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            self.permission_classes = (permissions.AllowAny,)
+
+        return super(UserViewSet, self).get_permissions()
 
 
 class GroupViewSet(viewsets.ModelViewSet):

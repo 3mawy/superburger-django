@@ -1,6 +1,6 @@
 from django.db import models
 
-from api.models.MenuItem import MenuItem
+from api.models.MenuItem import MenuItem, Size
 from api.models.Offer import Offer
 from api.models.PlacedOrder import PlacedOrder
 
@@ -9,7 +9,8 @@ class OrderItem(models.Model):
     quantity = models.IntegerField(default=0)
     item_price = models.DecimalField(max_digits=6, decimal_places=2)
     total_price = models.DecimalField(max_digits=8, decimal_places=2)
-    comments = models.CharField(max_length=600)
+    comments = models.CharField(max_length=600, null=True)
+    size = models.ForeignKey(Size, on_delete=models.DO_NOTHING, null=True)
 
     placed_order = models.ForeignKey(PlacedOrder, on_delete=models.CASCADE, null=False, related_name='order_items')
     offer = models.ForeignKey(Offer, on_delete=models.CASCADE, null=True, blank=True)

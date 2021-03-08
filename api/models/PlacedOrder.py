@@ -13,8 +13,7 @@ class PlacedOrder(models.Model):
     delivery_notes = models.CharField(max_length=600, null=True, blank=True)
     total_price = models.DecimalField(max_digits=8, decimal_places=2)
     customer = models.ForeignKey(Customer, on_delete=models.SET('deleted customer'))
-    status = models.ForeignKey(Status, on_delete=models.SET('deleted status'))
-    complete = models.BooleanField(default=False)
+    status = models.ForeignKey(Status, on_delete=models.SET('deleted status'), null=True)
 
     class Meta:
         db_table = "placed_orders"
