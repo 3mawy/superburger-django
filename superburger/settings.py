@@ -26,8 +26,7 @@ SECRET_KEY = 'tvm^+@=)n=$z=icjewh#2347ewlqzyxuzp$=i4@5zexx%c#4_4'
 DEBUG = True
 
 # edit
-ALLOWED_HOSTS = ["localhost", "jacksonville-commodities-services-packed.trycloudflare.com",]
-
+ALLOWED_HOSTS = ["localhost", "superburger-backend.herokuapp.com",]
 # Application definition
 
 INSTALLED_APPS = [
