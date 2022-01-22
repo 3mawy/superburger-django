@@ -23,13 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'tvm^+@=)n=$z=icjewh#2347ewlqzyxuzp$=i4@5zexx%c#4_4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # edit
 ALLOWED_HOSTS = ["localhost", "superburger-backend.herokuapp.com",]
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -83,6 +84,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  #
     'django.middleware.common.CommonMiddleware',  #
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -93,7 +95,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = (
     'http://192.168.1.11:3000',
-    'https://unique-pepper-humidity-kazakhstan.trycloudflare.com',
+    'http://meemgallery.games/',
     'http://localhost:3000',
     'http://localhost:8000',
     'http://localhost:8080'
@@ -125,13 +127,16 @@ WSGI_APPLICATION = 'superburger.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'superburger',
-        'USER': 'mawy',
-        'PASSWORD': '0153',
-        'HOST': 'localhost',
+        'NAME': 'd5pnddd7pj7um7',
+        'USER': 'ozyzvdubuwsxqs',
+        'PASSWORD': 'ad43acf66d6c6ababe2e7189504cbfb6cb363160fb39be422055b0521af85412',
+        'HOST': 'ec2-54-84-98-18.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -171,3 +176,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
