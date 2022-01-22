@@ -1,0 +1,56 @@
+[
+  {
+    "model": "api.extra",
+    "pk": 1,
+    "fields": {
+      "name": "extra1",
+      "name_ar": "chicken island",
+      "price": 15
+    }
+  },
+  {
+    "model": "api.extra",
+    "pk": 2,
+    "fields": {
+      "name": "extra2",
+      "name_ar": "chicken island",
+      "price": 8
+    }
+  },
+  {
+    "model": "api.extra",
+    "pk": 3,
+    "fields": {
+      "name": "extra3",
+      "name_ar": "chicken island",
+      "price": 12
+    }
+  },
+  {
+    "model": "api.extra",
+    "pk": 4,
+    "fields": {
+      "name": "extra4",
+      "name_ar": "chicken island",
+      "price": 5
+    }
+  },
+  {
+    "model": "api.extra",
+    "pk": 5,
+    "fields": {
+      "name": "extra5",
+      "name_ar": "chicken island",
+      "price": 20
+    }
+  },
+  {
+    "model": "api.extra",
+    "pk": 6,
+    "fields": {
+      "name": "extra6",
+      "name_ar": "chicken island",
+      "price": 10
+    }
+  }
+]

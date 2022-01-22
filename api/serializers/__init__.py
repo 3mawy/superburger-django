@@ -11,3 +11,10 @@ from .StatusSerializer import StatusSerializer
 from .CustomerSerializer import CustomerSerializer
 from .CustomerSerializer import AreaSerializer
 from .CustomerSerializer import AddressSerializer
+from .ImageSerializer import ImageSerializer
+from .CarouselImageSerializer import CarouselImageSerializer
+from .ExtraSerializer import ExtraSerializer
+from .CartSerializer import CartSerializer
+from .CartItemSerializer import CartItemSerializer
+
+

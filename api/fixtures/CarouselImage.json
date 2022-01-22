@@ -1,0 +1,26 @@
+[
+  {
+    "model": "api.carouselimage",
+    "pk": 1,
+    "fields": {
+      "description": "first image",
+      "image": 19
+    }
+  },
+  {
+    "model": "api.carouselimage",
+    "pk": 2,
+    "fields": {
+      "description": "second image",
+      "image": 20
+    }
+  },
+  {
+    "model": "api.carouselimage",
+    "pk": 3,
+    "fields": {
+      "description": "third image",
+      "image": 21
+    }
+  }
+]

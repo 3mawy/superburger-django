@@ -12,6 +12,9 @@ django-cors-headers = "*"
 django-filter = "*"
 django-seed = "*"
 djangorestframework-simplejwt = "*"
+rest-social-auth = "*"
+faker = "*"
+pillow = "*"
 
 [dev-packages]
 

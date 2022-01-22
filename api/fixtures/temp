@@ -1,0 +1,91 @@
+,
+  {
+    "model": "api.menuitemsize",
+    "pk": 23,
+    "fields": {
+      "menu_item": 15,
+      "size": 1,
+      "price": "50.00"
+    }
+  },
+  {
+    "model": "api.menuitemsize",
+    "pk": 23,
+    "fields": {
+      "menu_item": 15,
+      "size": 1,
+      "price": "50.00"
+    }
+  },
+  {
+    "model": "api.menuitemsize",
+    "pk": 23,
+    "fields": {
+      "menu_item": 16,
+      "size": 1,
+      "price": "50.00"
+    }
+  },
+  {
+    "model": "api.menuitemsize",
+    "pk": 23,
+    "fields": {
+      "menu_item": 16,
+      "size": 1,
+      "price": "50.00"
+    }
+  },
+  {
+    "model": "api.menuitemsize",
+    "pk": 23,
+    "fields": {
+      "menu_item": 17,
+      "size": 1,
+      "price": "50.00"
+    }
+  },
+  {
+    "model": "api.menuitemsize",
+    "pk": 23,
+    "fields": {
+      "menu_item": 17,
+      "size": 1,
+      "price": "50.00"
+    }
+  },
+  {
+    "model": "api.menuitemsize",
+    "pk": 23,
+    "fields": {
+      "menu_item": 18,
+      "size": 1,
+      "price": "50.00"
+    }
+  },
+  {
+    "model": "api.menuitemsize",
+    "pk": 23,
+    "fields": {
+      "menu_item": 18,
+      "size": 1,
+      "price": "50.00"
+    }
+  },
+  {
+    "model": "api.menuitemsize",
+    "pk": 23,
+    "fields": {
+      "menu_item": 19,
+      "size": 1,
+      "price": "50.00"
+    }
+  },
+  {
+    "model": "api.menuitemsize",
+    "pk": 23,
+    "fields": {
+      "menu_item": 19,
+      "size": 1,
+      "price": "50.00"
+    }
+  }

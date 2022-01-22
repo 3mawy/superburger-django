@@ -13,30 +13,6 @@ from api import models
 from api.models import PlacedOrder
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-    def get_permissions(self):
-        if self.request.method == 'POST':
-            self.permission_classes = (permissions.AllowAny,)
-
-        return super(UserViewSet, self).get_permissions()
-
-
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-
 # Create your views here.
 
 # @api_view(['GET', 'POST'])
@@ -47,19 +23,25 @@ class GroupViewSet(viewsets.ModelViewSet):
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = models.Category.objects.all().order_by('id')
     serializer_class = serializers.CategorySerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 class SizeViewSet(viewsets.ModelViewSet):
     queryset = models.Size.objects.all().order_by('id')
     serializer_class = serializers.SizeSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
+
+
+class CarouselImageViewSet(viewsets.ModelViewSet):
+    queryset = models.CarouselImage.objects.all().order_by('id')
+    serializer_class = serializers.CarouselImageSerializer
+    permission_classes = [permissions.AllowAny]
 
 
 class MenuItemSizeViewSet(viewsets.ModelViewSet):
     queryset = models.MenuItemSize.objects.all().order_by('id')
     serializer_class = serializers.MenuItemSizeSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 class MenuItemViewSet(viewsets.ModelViewSet):
@@ -67,20 +49,20 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.MenuItemSerializer
     filter_backends = (OrderingFilter, DjangoFilterBackend)
     filterset_fields = ['category']
-    ordering_fields = ('sizes', 'score')
-    permission_classes = [permissions.IsAuthenticated]
+    ordering_fields = ('sizes__size__price', 'score')
+    permission_classes = [permissions.AllowAny]
 
 
 class OfferViewSet(viewsets.ModelViewSet):
     queryset = models.Offer.objects.all().order_by('id')
     serializer_class = serializers.OfferSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 class OrderItemViewSet(viewsets.ModelViewSet):
     queryset = models.OrderItem.objects.all().order_by('id')
     serializer_class = serializers.OrderItemSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 class PlacedOrderViewSet(viewsets.ModelViewSet):
@@ -96,13 +78,7 @@ class PlacedOrderViewSet(viewsets.ModelViewSet):
 class StatusViewSet(viewsets.ModelViewSet):
     queryset = models.Status.objects.all().order_by('id')
     serializer_class = serializers.StatusSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-
-class CustomerViewSet(viewsets.ModelViewSet):
-    queryset = models.Customer.objects.all().order_by('id')
-    serializer_class = serializers.CustomerSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 class AreaViewSet(viewsets.ModelViewSet):
@@ -115,3 +91,27 @@ class AddressViewSet(viewsets.ModelViewSet):
     queryset = models.Address.objects.all().order_by('id')
     serializer_class = serializers.AddressSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+class ImageViewSet(viewsets.ModelViewSet):
+    queryset = models.Image.objects.all().order_by('id')
+    serializer_class = serializers.ImageSerializer
+    permission_classes = [permissions.AllowAny]
+
+
+class ExtraViewSet(viewsets.ModelViewSet):
+    queryset = models.Extra.objects.all().order_by('id')
+    serializer_class = serializers.ExtraSerializer
+    permission_classes = [permissions.AllowAny]
+
+
+class CartViewSet(viewsets.ModelViewSet):
+    queryset = models.Cart.objects.all().order_by('id')
+    serializer_class = serializers.CartSerializer
+    permission_classes = [permissions.AllowAny]
+
+
+class CartItemViewSet(viewsets.ModelViewSet):
+    queryset = models.CartItem.objects.all().order_by('id')
+    serializer_class = serializers.CartItemSerializer
+    permission_classes = [permissions.AllowAny]

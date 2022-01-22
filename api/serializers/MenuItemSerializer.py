@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from api.models import MenuItem, Size, MenuItemSize
 
 
@@ -11,12 +12,13 @@ class SizeSerializer(serializers.ModelSerializer):
 
 
 class MenuItemSizeSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(source='size.id')
     size = serializers.CharField(source='size.name')
     menu_item = serializers.IntegerField(source='menu_item.id')
 
     class Meta:
         model = MenuItemSize
-        fields = ('menu_item', 'size', 'price')
+        fields = ('id', 'menu_item', 'size', 'price')
 
 
 class MenuItemSerializer(serializers.ModelSerializer):
@@ -25,5 +27,5 @@ class MenuItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = MenuItem
         depth = 1
-        fields = ('id', 'name', 'description', 'ingredients',
-                  'active', 'score', 'category', 'sizes')
+        fields = ('id', 'name', 'name_ar', 'description', 'description_ar',
+                  'active', 'score', 'category', 'sizes', 'image')

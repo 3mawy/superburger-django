@@ -1,0 +1,38 @@
+[
+  {
+    "model": "api.category",
+    "pk": 1,
+    "fields": {
+      "name": "chicken",
+      "description": "Chicken Sandwiches",
+      "image": 15
+    }
+  },
+  {
+    "model": "api.category",
+    "pk": 2,
+    "fields": {
+      "name": "beef",
+      "description": "Beef Sandwiches",
+      "image": 16
+    }
+  },
+  {
+    "model": "api.category",
+    "pk": 3,
+    "fields": {
+      "name": "specials",
+      "description": "special Sandwiches",
+      "image": 17
+    }
+  },
+  {
+    "model": "api.category",
+    "pk": 4,
+    "fields": {
+      "name": "sides",
+      "description": "salads, appetizers, sauce, drinks",
+      "image": 18
+    }
+  }
+]

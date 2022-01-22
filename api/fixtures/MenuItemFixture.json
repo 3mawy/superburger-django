@@ -1,0 +1,200 @@
+[
+  {
+    "model": "api.menuitem",
+    "pk": 1,
+    "fields": {
+      "name": "dad's burger",
+      "name_ar": "chicken island",
+      "description_ar": "قطعه البرجر المشويه مع مزيج من شرائح الخضروات الفريش و صوص سوبر المميز",
+      "description": "super sauce, lettuce, tomatoes, onion",
+      "active": true,
+      "score": "1",
+      "category": 2,
+      "image": 1
+    }
+  },
+  {
+    "model": "api.menuitem",
+    "pk": 2,
+    "fields": {
+      "name": "super blue",
+      "name_ar": "chicken island",
+      "description_ar": "قطعه البرجر المشويه يضاف اليها جبن الريكفورد الشهيه مع اوراق الجرجير الفريش و صوص سوبر المميز",
+      "description": "super sauce, blue cheese, tomatoes, onion",
+      "active": true,
+      "score": "50",
+      "category": 2,
+      "image": 2
+    }
+  },
+  {
+    "model": "api.menuitem",
+    "pk": 3,
+    "fields": {
+      "name": "bacon & mushrooms",
+      "name_ar": "chicken island",
+      "description_ar": "قطعه البرجر المشويه مع مزيج من شرائح الخضروات الفريش و صوص سوبر المميز",
+      "description": "super sauce, caramelized onion, beef bacon, tomatoes, lettuce",
+      "active": true,
+      "score": "56",
+      "category": 2,
+      "image": 3
+    }
+  },
+  {
+    "model": "api.menuitem",
+    "pk": 4,
+    "fields": {
+      "name": "smoked flavor",
+      "name_ar": "chicken island",
+      "description_ar": "قطعه البرجر المشويه مع شرائح السموكد بيف و حلقات البصل المقرمشه مع شرائح الطماطم الفريش و صوص سوبر المميز",
+      "description": "smoked beef, onion rings, lettuce, tomatoes, onion",
+      "active": true,
+      "score": "1",
+      "category": 2,
+      "image": 4
+    }
+  },
+  {
+    "model": "api.menuitem",
+    "pk": 5,
+    "fields": {
+      "name": "super burger",
+      "name_ar": "chicken island",
+      "description_ar": "قطعه البرجر المشويه مع شرائح البسطرمه و اصابع الموتزريلا المقرمشه و صوص الشيدر و شرائح الخس و البصل و صوص السوبر المميز",
+      "description": "super sauce, Pastrami, mozzarella sticks, cheddar",
+      "active": true,
+      "score": "58",
+      "category": 2,
+      "image": 5
+    }
+  },
+  {
+    "model": "api.menuitem",
+    "pk": 6,
+    "fields": {
+      "name": "melt cheese",
+      "name_ar": "chicken island",
+      "description_ar": "ثلاثه انواع من الجبن السائحه علي قطعه البرجر المشويه بالاضافه الي شرائح البصل و الطماطم الفريش",
+      "description": "super sauce, mix cheese, lettuce, tomatoes, onion",
+      "active": true,
+      "score": "1",
+      "category": 2,
+      "image": 6
+    }
+  },
+  {
+    "model": "api.menuitem",
+    "pk": 7,
+    "fields": {
+      "name": "tasty bbq",
+      "name_ar": "chicken island",
+      "description_ar": "قطعه البرجر المشويه مع شرائح التركي المدخن المضاف اليها صوص الباربكيو و شرائح البصل و الطماطم و الخس مع صوص سوبر المميز",
+      "description": "super sauce, smoked bbq turkey, lettuce, tomatoes, onion",
+      "active": true,
+      "score": "50",
+      "category": 2,
+      "image": 7
+    }
+  },
+  {
+    "model": "api.menuitem",
+    "pk": 8,
+    "fields": {
+      "name": "jalapeno & buffalo",
+      "name_ar": "chicken island",
+      "description_ar": "قطعه البرجر المشويه المضاف اليها اصابع الهالبينو المقرمشه و صوص الشيدر و شرائح البصل و الطماطم و الخس مع صوص سوبر المميز",
+      "description": "super sauce, fried jalapeno, cheddar sauce, lettuce, tomatoes",
+      "active": true,
+      "score": "50",
+      "category": 2,
+      "image": 8
+    }
+  },
+
+
+    {
+    "model": "api.menuitem",
+    "pk": 9,
+    "fields": {
+      "name": "marvel chicken",
+      "name_ar": "chicken island",
+      "description_ar": "قطعه البرجر المشويه مع مزيج من شرائح الخضروات الفريش و صوص سوبر المميز",
+      "description": "super sauce, lettuce, tomatoes, onion",
+      "active": true,
+      "score": "1",
+      "category": 1,
+      "image": 9
+    }
+  },
+  {
+    "model": "api.menuitem",
+    "pk": 10,
+    "fields": {
+      "name": "chicken caprese",
+      "name_ar": "chicken island",
+      "description_ar": "قطعه البرجر المشويه يضاف اليها جبن الريكفورد الشهيه مع اوراق الجرجير الفريش و صوص سوبر المميز",
+      "description": "super sauce, blue cheese, tomatoes, onion",
+      "active": true,
+      "score": "50",
+      "category": 1,
+      "image": 10
+    }
+  },
+  {
+    "model": "api.menuitem",
+    "pk": 11,
+    "fields": {
+      "name": "grand chicken",
+      "name_ar": "chicken island",
+      "description_ar": "قطعه البرجر المشويه مع مزيج من شرائح الخضروات الفريش و صوص سوبر المميز",
+      "description": "super sauce, caramelized onion, beef bacon, tomatoes, lettuce",
+      "active": true,
+      "score": "56",
+      "category": 1,
+      "image": 11
+    }
+  },
+  {
+    "model": "api.menuitem",
+    "pk": 12,
+    "fields": {
+      "name": "chicken ranch",
+      "name_ar": "chicken island",
+      "description_ar": "قطعه البرجر المشويه مع شرائح السموكد بيف و حلقات البصل المقرمشه مع شرائح الطماطم الفريش و صوص سوبر المميز",
+      "description": "smoked beef, onion rings, lettuce, tomatoes, onion",
+      "active": true,
+      "score": "1",
+      "category": 1,
+      "image": 12
+    }
+  },
+  {
+    "model": "api.menuitem",
+    "pk": 13,
+    "fields": {
+      "name": "diavlo chicken",
+      "name_ar": "chicken island",
+      "description_ar": "قطعه البرجر المشويه مع شرائح البسطرمه و اصابع الموتزريلا المقرمشه و صوص الشيدر و شرائح الخس و البصل و صوص السوبر المميز",
+      "description": "super sauce, Pastrami, mozzarella sticks, cheddar",
+      "active": true,
+      "score": "58",
+      "category": 1,
+      "image": 13
+    }
+  },
+  {
+    "model": "api.menuitem",
+    "pk": 14,
+    "fields": {
+      "name": "chicken island",
+      "name_ar": "chicken island",
+      "description_ar": "ثلاثه انواع من الجبن السائحه علي قطعه البرجر المشويه بالاضافه الي شرائح البصل و الطماطم الفريش",
+      "description": "super sauce, mix cheese, lettuce, tomatoes, onion",
+      "active": true,
+      "score": "1",
+      "category": 1,
+      "image": 14
+    }
+  }
+]

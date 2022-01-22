@@ -1,10 +1,12 @@
 from django.db import models
 
 from api.models.Category import Category
+from api.models.Image import Image
 
 
 class Size(models.Model):
     name = models.CharField(max_length=100, null=False)
+    name_ar = models.CharField(max_length=200)
 
     class Meta:
         db_table = "sizes"
@@ -15,11 +17,13 @@ class Size(models.Model):
 
 class MenuItem(models.Model):
     name = models.CharField(max_length=200)
+    name_ar = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
-    ingredients = models.CharField(max_length=200)
+    description_ar = models.CharField(max_length=200)
     active = models.BooleanField(default=False, blank=True, null=True)
     score = models.DecimalField(default=1, max_digits=5, decimal_places=0)
 
+    image = models.ForeignKey(Image, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     sizes = models.ManyToManyField(Size, through='MenuItemSize')
 

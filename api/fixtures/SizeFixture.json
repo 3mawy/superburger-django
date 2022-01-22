@@ -1,0 +1,26 @@
+[
+  {
+    "model": "api.size",
+    "pk": 1,
+    "fields": {
+      "name": "large",
+      "name_ar": "chicken island"
+    }
+  },
+  {
+    "model": "api.size",
+    "pk": 2,
+    "fields": {
+      "name": "double",
+      "name_ar": "chicken island"
+    }
+  },
+  {
+    "model": "api.size",
+    "pk": 3,
+    "fields": {
+      "name": "stuffed",
+      "name_ar": "chicken island"
+    }
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "model": "api.offer",
+    "pk": 1,
+    "fields": {
+      "name": "offer",
+      "name_ar": "chicken island",
+      "description": "offerof ferofferof ferofferoffer",
+      "description_ar": "offerof ferofferof ferofferoffer",
+      "price": "40.00",
+      "active": true,
+      "menu_items": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "max_offer_items": 3,
+      "image": 9
+    }
+  },
+  {
+    "model": "api.offer",
+    "pk": 2,
+    "fields": {
+      "name": "offer",
+      "name_ar": "chicken island",
+      "description": "offer offer offer offer",
+      "description_ar": "offerof ferofferof ferofferoffer",
+      "price": "54.99",
+      "active": false,
+      "menu_items": [
+        2,
+        3
+      ],
+      "max_offer_items": 1,
+      "image": 15
+    }
+  },
+  {
+    "model": "api.offer",
+    "pk": 3,
+    "fields": {
+      "name": "offer offer",
+      "name_ar": "chicken island",
+      "description": "offeroffero fferoff eroffero fferoffer",
+      "description_ar": "offerof ferofferof ferofferoffer",
+      "price": "80.00",
+      "active": false,
+      "menu_items": [1,5,4],
+      "max_offer_items": 2,
+      "image": 14
+    }
+  },
+  {
+    "model": "api.offer",
+    "pk": 4,
+    "fields": {
+      "name": "offer off ero",
+      "name_ar": "chicken island",
+      "description": "offer off erooffer off erooffer off ero",
+      "description_ar": "offerof ferofferof ferofferoffer",
+      "price": "104.99",
+      "active": false,
+      "menu_items": [1,5,2],
+      "max_offer_items": 2,
+      "image": 13
+    }
+  }
+]

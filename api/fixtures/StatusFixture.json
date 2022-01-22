@@ -1,0 +1,9 @@
+[
+{
+ "model": "api.status",
+ "pk": 1,
+ "fields": {
+  "name": "initial"
+ }
+}
+]

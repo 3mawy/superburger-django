@@ -1,0 +1,44 @@
+[
+  {
+    "model": "api.customer",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "full_name": "Mohamed Hamdi",
+      "phone_number": "01062971126",
+      "cart": 1,
+      "email": "m.3mawyyaaaa@gmail.com"
+    }
+  },
+  {
+    "model": "api.cart",
+    "pk": 1,
+    "fields": {
+      "total_price": 0
+    }
+  },
+  {
+    "model": "api.area",
+    "pk": 1,
+    "fields": {
+      "area": "ssss",
+      "delivery_fees": "15.0"
+    }
+  },
+  {
+    "model": "api.address",
+    "pk": 1,
+    "fields": {
+      "area": 1,
+      "address": "aaaaaaaaaaaa",
+      "customer": 1
+    }
+  },
+  {
+    "model": "api.status",
+    "pk": 1,
+    "fields": {
+      "name": "order confirmed"
+    }
+  }
+]

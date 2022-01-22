@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 
-from api.models import MenuItemSize, Offer
+from api.models import MenuItemSize, Offer, Extra
 from api.serializers import PlacedOrderSerializer, OrderItemSerializer
 
 
@@ -11,6 +11,7 @@ from api.serializers import PlacedOrderSerializer, OrderItemSerializer
 @permission_classes((permissions.IsAuthenticated,))
 def post_order(request):
     grand_total = 0
+    extras_price = 0
     user = request.user
     placed_order = request.data['placed_order']
 
@@ -32,6 +33,7 @@ def post_order(request):
         item = order_item.get('item')
         offer = order_item.get('offer')
         size = order_item.get('size')
+        extras = order_item.get('extras', [])
         if item:
             item_size = MenuItemSize.objects.get(menu_item=item, size=size)
             price = item_size.price
@@ -40,7 +42,11 @@ def post_order(request):
             price = offer_price.price
         else:
             raise ValidationError("no menu items or offer")
-        total_price = price * quantity
+        for extra_id in extras:
+            extra = Extra.objects.get(id=extra_id)
+            extras_price += extra.price
+        total_price = (price * quantity) + (extras_price * quantity)
+
         item_data = {
             "quantity": quantity,
             "size": size,
@@ -50,10 +56,12 @@ def post_order(request):
             "offer": offer,
             "item_price": price,
             "total_price": total_price,
+            "extras_price": extras_price
         }
         item_serializer = OrderItemSerializer(data=item_data)
         item_serializer.is_valid(True)
-        item_serializer.save()
+        order_single_item = item_serializer.save()
+        order_single_item.extras.set(extras)
 
         grand_total = grand_total + total_price
     order.total_price = grand_total

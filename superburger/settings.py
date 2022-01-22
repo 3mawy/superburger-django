@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import os
 from datetime import timedelta
 from pathlib import Path
 
@@ -24,7 +25,8 @@ SECRET_KEY = 'tvm^+@=)n=$z=icjewh#2347ewlqzyxuzp$=i4@5zexx%c#4_4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# edit
+ALLOWED_HOSTS = ["localhost", "jacksonville-commodities-services-packed.trycloudflare.com",]
 
 # Application definition
 
@@ -36,16 +38,30 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
-    'rest_framework',
     'corsheaders',
     'django_filters',
     'django_seed',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'social_django',
+    'rest_social_auth',
     # own
     'api.apps.ApiConfig',
 ]
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5000),
 }
+
+SOCIAL_AUTH_GOOGLE_KEY = '764646838817-p2ureou2svej79akvf8cmg3opii41vjs.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_SECRET = 'ZRqIZ-hJD-3KIEH32DNJQXeg'
+# SOCIAL_AUTH_Google_SCOPE = ['email', ]  # optional
+
+# AUTHENTICATION_BACKENDS = (
+#     # 'social_core.backends.google.GoogleOAuth2',
+#     # 'social_core.backends.google.GoogleOAuth',
+#     # 'django.contrib.auth.backends.ModelBackend',
+# )
+
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
@@ -55,10 +71,13 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        # 'social_core.backends.google.GoogleOAuth2',
+        # 'social_core.backends.google.GoogleOAuth',
     ),
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'pagination.CustomPagination',
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 8
 }
 
 MIDDLEWARE = [
@@ -74,6 +93,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = (
+    'http://192.168.1.11:3000',
+    'https://unique-pepper-humidity-kazakhstan.trycloudflare.com',
     'http://localhost:3000',
     'http://localhost:8000',
     'http://localhost:8080'
@@ -113,6 +134,8 @@ DATABASES = {
     }
 }
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
