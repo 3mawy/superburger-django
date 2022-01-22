@@ -97,7 +97,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = (
     'http://192.168.1.11:3000',
-    'http://meemgallery.games/',
+    'http://meemgallery.games',
     'http://localhost:3000',
     'http://localhost:8000',
     'http://localhost:8080'
