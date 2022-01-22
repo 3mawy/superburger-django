@@ -1,1 +1,1 @@
-web: gunicorn Django_Backend.wsgi
+web: gunicorn superburger.wsgi
