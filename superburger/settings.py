@@ -14,6 +14,8 @@ from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import django_heroku
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -26,7 +28,7 @@ SECRET_KEY = 'tvm^+@=)n=$z=icjewh#2347ewlqzyxuzp$=i4@5zexx%c#4_4'
 DEBUG = False
 
 # edit
-ALLOWED_HOSTS = ["localhost", "superburger-backend.herokuapp.com",]
+ALLOWED_HOSTS = ["localhost", "https://superburger-backend.herokuapp.com",]
 # Application definition
 
 INSTALLED_APPS = [
@@ -177,5 +179,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+django_heroku.settings(locals())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
