@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "name": "large",
-      "name_ar": "chicken island"
+      "name_ar": "لارج"
     }
   },
   {
@@ -12,7 +12,7 @@
     "pk": 2,
     "fields": {
       "name": "double",
-      "name_ar": "chicken island"
+      "name_ar": "دبل"
     }
   },
   {
@@ -20,7 +20,7 @@
     "pk": 3,
     "fields": {
       "name": "stuffed",
-      "name_ar": "chicken island"
+      "name_ar": "ستافد"
     }
   }
 ]
