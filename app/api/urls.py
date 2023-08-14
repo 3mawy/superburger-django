@@ -15,7 +15,6 @@ router.register(r'order-items', views.OrderItemViewSet)
 router.register(r'placed-orders', views.PlacedOrderViewSet)
 router.register(r'status', views.StatusViewSet)
 router.register(r'customers', views.CustomerViewSet),
-router.register(r'current-customer', views.CurrentCustomerView)
 router.register(r'cart', views.CartViewSet)
 router.register(r'cart-items', views.CartItemViewSet)
 router.register(r'areas', views.AreaViewSet)
@@ -29,5 +28,8 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('order-create', views.post_order, name='order-create'),
+    path('current-customer', views.current_customer, name='current-customer'),
+    path('current-customer-orders', views.current_customer_orders, name='current-customer-orders'),
     path('signup', views.signup, name='signup'),
+    path('login', views.login, name='login'),
 ]

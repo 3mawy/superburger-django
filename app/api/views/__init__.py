@@ -1,4 +1,5 @@
-from .customerView import CurrentCustomerView
+from .customerView import current_customer
+from .customerView import current_customer_orders
 from .customerView import CustomerViewSet
 from .orderView import post_order
 # from .userView import CurrentUserView
@@ -19,5 +20,6 @@ from .views import PlacedOrderViewSet
 from .views import SizeViewSet
 from .views import StatusViewSet
 from .signUp import signup
+from .login import login
 
 
