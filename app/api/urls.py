@@ -15,7 +15,6 @@ router.register(r'order-items', views.OrderItemViewSet)
 router.register(r'placed-orders', views.PlacedOrderViewSet)
 router.register(r'status', views.StatusViewSet)
 router.register(r'customers', views.CustomerViewSet),
-router.register(r'cart', views.CartViewSet)
 router.register(r'cart-items', views.CartItemViewSet)
 router.register(r'areas', views.AreaViewSet)
 router.register(r'addresses', views.AddressViewSet)
@@ -27,9 +26,15 @@ router.register(r'extras', views.ExtraViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('order-create', views.post_order, name='order-create'),
-    path('current-customer', views.current_customer, name='current-customer'),
-    path('current-customer-orders', views.current_customer_orders, name='current-customer-orders'),
+    path('order-create', views.post_order, name='order_create'),
+    path('current-customer/', views.current_customer, name='current_customer'),
+    path('current-customer-orders/', views.current_customer_orders, name='current_customer_orders'),
+    path('cart/', include([
+        path('', views.current_customer_cart, name='current_customer_cart'),
+        path('add', views.add_to_cart, name='add_to_cart'),
+        path('<int:cart_item_id>', views.remove_from_cart, name='remove_from_cart'),
+        path('clear', views.clear_cart, name='clear_cart'),
+    ])),
     path('signup', views.signup, name='signup'),
     path('login', views.login, name='login'),
 ]
