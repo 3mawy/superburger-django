@@ -2,6 +2,10 @@ from .customerView import current_customer
 from .customerView import current_customer_orders
 from .customerView import CustomerViewSet
 from .orderView import post_order
+from .cartView import current_customer_cart
+from .cartView import add_to_cart
+from .cartView import remove_from_cart
+from .cartView import clear_cart
 # from .userView import CurrentUserView
 from .userView import GroupViewSet
 from .userView import UserViewSet
