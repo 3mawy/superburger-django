@@ -10,10 +10,9 @@ from api.serializers import PlacedOrderSerializer, OrderItemSerializer
 @api_view(['POST'])
 @permission_classes((permissions.IsAuthenticated,))
 def post_order(request):
-    grand_total = 0
-    extras_price = 0
     user = request.user
     placed_order = request.data['placed_order']
+    order_items = request.data['order_items']
 
     order_data = {
         "delivery": placed_order.get('delivery'),
@@ -27,24 +26,24 @@ def post_order(request):
     serializer.is_valid(True)
     order = serializer.save()
 
-    order_items = request.data['order_items']
+    grand_total = 0
     for order_item in order_items:
         quantity = order_item.get('quantity', 1)
-        item = order_item.get('item')
-        offer = order_item.get('offer')
+        item = order_item.get('item_id')
+        offer = order_item.get('offer_id')
         size = order_item.get('size')
         extras = order_item.get('extras', [])
+
         if item:
             item_size = MenuItemSize.objects.get(menu_item=item, size=size)
             price = item_size.price
         elif offer:
-            offer_price = Offer.objects.get(pk=order_item.get('offer'))
+            offer_price = Offer.objects.get(pk=offer)
             price = offer_price.price
         else:
             raise ValidationError("no menu items or offer")
-        for extra_id in extras:
-            extra = Extra.objects.get(id=extra_id)
-            extras_price += extra.price
+
+        extras_price = sum(Extra.objects.filter(id__in=extras).values_list('price', flat=True))
         total_price = (price * quantity) + (extras_price * quantity)
 
         item_data = {
@@ -63,8 +62,13 @@ def post_order(request):
         order_single_item = item_serializer.save()
         order_single_item.extras.set(extras)
 
-        grand_total = grand_total + total_price
+        grand_total += total_price
+
     order.total_price = grand_total
     order.save()
-    return Response({"message": "order and order items added Successfully!",
-                     "customer_email": user.email, "order_num": order.id})
+
+    return Response({
+        "message": "order and order items added Successfully!",
+        "customer_email": user.email,
+        "order_num": order.id
+    })
