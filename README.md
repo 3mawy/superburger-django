@@ -20,8 +20,8 @@ python -m pip install -r requirements.txt
 
 ```
 # API Reference
-# 📁 Collection: Auth 
 
+# 📁 Collection: Auth 
 
 ## End-point: signup
 ### Method: POST
@@ -41,6 +41,11 @@ python -m pip install -r requirements.txt
 }
 ```
 
+
+
+
+
+
 ### Response: 200
 ```json
 {
@@ -55,7 +60,7 @@ python -m pip install -r requirements.txt
 ## End-point: login
 ### Method: POST
 >```
->http://localhost:8003/login
+>http://localhost:8003/api/login
 >```
 ### Body (**raw**)
 
@@ -66,9 +71,9 @@ python -m pip install -r requirements.txt
 }
 ```
 
-### 🔑 Authentication noauth
 
- 
+
+
 
 
 ### Response: 200
@@ -90,9 +95,9 @@ python -m pip install -r requirements.txt
 >```
 >http://localhost:8003/api/categories/
 >```
-### 🔑 Authentication noauth
 
- 
+
+
 
 
 ### Response: 200
@@ -102,7 +107,7 @@ python -m pip install -r requirements.txt
         "next": null,
         "previous": null
     },
-    "count": 2,
+    "count": 4,
     "total_pages": 1,
     "results": [
         {
@@ -133,11 +138,11 @@ python -m pip install -r requirements.txt
 ## End-point: get menu-items
 ### Method: GET
 >```
->http://localhost:8003/menu-items/
+>http://localhost:8003/api/menu-items/
 >```
-### 🔑 Authentication noauth
 
- 
+
+
 
 
 ### Response: 200
@@ -228,11 +233,11 @@ python -m pip install -r requirements.txt
 ## End-point: get item
 ### Method: GET
 >```
->http://localhost:8003/menu-items/1
+>http://localhost:8003/api/menu-items/1
 >```
-### 🔑 Authentication noauth
 
- 
+
+
 
 
 ### Response: 200
@@ -279,11 +284,9 @@ python -m pip install -r requirements.txt
 ## End-point: get offers
 ### Method: GET
 >```
->http://localhost:8003/offers/
+>http://localhost:8003/api/offers/
 >```
-### 🔑 Authentication noauth
 
- 
 
 
 ### Response: 200
@@ -293,7 +296,7 @@ python -m pip install -r requirements.txt
         "next": null,
         "previous": null
     },
-    "count": 2,
+    "count": 4,
     "total_pages": 1,
     "results": [
         {
@@ -528,7 +531,7 @@ python -m pip install -r requirements.txt
 ## End-point: get extras
 ### Method: GET
 >```
->http://localhost:8003/offers/2
+>http://localhost:8003/api/extras
 >```
 ### Response: 200
 ```json
@@ -665,141 +668,6 @@ python -m pip install -r requirements.txt
                         "name_ar": "chicken island",
                         "price": "5.0"
                     },
-                    {
-                        "id": 2,
-                        "name": "extra2",
-                        "name_ar": "chicken island",
-                        "price": "8.0"
-                    },
-                    {
-                        "id": 1,
-                        "name": "extra1",
-                        "name_ar": "chicken island",
-                        "price": "15.0"
-                    }
-                ]
-            },
-            {
-                "id": 83,
-                "quantity": 8,
-                "item_price": "25.00",
-                "total_price": "424.00",
-                "comments": null,
-                "extras_price": "28.0",
-                "size": {
-                    "id": 2,
-                    "name": "double",
-                    "name_ar": "دبل"
-                },
-                "offer": null,
-                "item": {
-                    "id": 2,
-                    "name": "super blue",
-                    "name_ar": "chicken island",
-                    "description": "super sauce, blue cheese, tomatoes, onion",
-                    "description_ar": "قطعه البرجر المشويه يضاف اليها جبن الريكفورد الشهيه مع اوراق الجرجير الفريش و صوص سوبر المميز",
-                    "active": true,
-                    "score": "50",
-                    "image": 2,
-                    "category": 2,
-                    "sizes": [
-                        1,
-                        2
-                    ]
-                },
-                "extras": [
-                    {
-                        "id": 4,
-                        "name": "extra4",
-                        "name_ar": "chicken island",
-                        "price": "5.0"
-                    },
-                    {
-                        "id": 2,
-                        "name": "extra2",
-                        "name_ar": "chicken island",
-                        "price": "8.0"
-                    },
-                    {
-                        "id": 1,
-                        "name": "extra1",
-                        "name_ar": "chicken island",
-                        "price": "15.0"
-                    }
-                ]
-            },
-            {
-                "id": 84,
-                "quantity": 8,
-                "item_price": "25.00",
-                "total_price": "384.00",
-                "comments": null,
-                "extras_price": "23.0",
-                "size": {
-                    "id": 2,
-                    "name": "double",
-                    "name_ar": "دبل"
-                },
-                "offer": null,
-                "item": {
-                    "id": 2,
-                    "name": "super blue",
-                    "name_ar": "chicken island",
-                    "description": "super sauce, blue cheese, tomatoes, onion",
-                    "description_ar": "قطعه البرجر المشويه يضاف اليها جبن الريكفورد الشهيه مع اوراق الجرجير الفريش و صوص سوبر المميز",
-                    "active": true,
-                    "score": "50",
-                    "image": 2,
-                    "category": 2,
-                    "sizes": [
-                        1,
-                        2
-                    ]
-                },
-                "extras": [
-                    {
-                        "id": 2,
-                        "name": "extra2",
-                        "name_ar": "chicken island",
-                        "price": "8.0"
-                    },
-                    {
-                        "id": 1,
-                        "name": "extra1",
-                        "name_ar": "chicken island",
-                        "price": "15.0"
-                    }
-                ]
-            },
-            {
-                "id": 85,
-                "quantity": 8,
-                "item_price": "20.00",
-                "total_price": "344.00",
-                "comments": null,
-                "extras_price": "23.0",
-                "size": {
-                    "id": 1,
-                    "name": "large",
-                    "name_ar": "لارج"
-                },
-                "offer": null,
-                "item": {
-                    "id": 2,
-                    "name": "super blue",
-                    "name_ar": "chicken island",
-                    "description": "super sauce, blue cheese, tomatoes, onion",
-                    "description_ar": "قطعه البرجر المشويه يضاف اليها جبن الريكفورد الشهيه مع اوراق الجرجير الفريش و صوص سوبر المميز",
-                    "active": true,
-                    "score": "50",
-                    "image": 2,
-                    "category": 2,
-                    "sizes": [
-                        1,
-                        2
-                    ]
-                },
-                "extras": [
                     {
                         "id": 2,
                         "name": "extra2",
@@ -1010,12 +878,6 @@ Clear all cart items and total
 }
 ```
 
-### Query Params
-
-|Param|value|
-|---|---|
-|message|added|
-
 
 ### Response: 200
 ```json
@@ -1048,7 +910,7 @@ Clear all cart items and total
 ## End-point: get current customer data
 ### Method: GET
 >```
->http://127.0.0.1:8003/current-customer
+>http://127.0.0.1:8003/api/current-customer
 >```
 ### Response: 200
 ```json
@@ -1124,43 +986,6 @@ Clear all cart items and total
                 }
             ],
             "status": 1
-        },
-        {
-            "id": 2,
-            "delivery": true,
-            "delivery_notes": "aaaaaaaaaaaaaaaaaaaaa",
-            "total_price": "220.00",
-            "delivery_address": 1,
-            "customer": 3,
-            "order_items": [
-                {
-                    "id": 3,
-                    "item_price": "30.00",
-                    "total_price": "60.00",
-                    "quantity": 2,
-                    "comments": "aaaaaaahhhhhhhhhhhhaaaa",
-                    "extras_price": "0.0",
-                    "size": 1,
-                    "placed_order": 2,
-                    "offer": null,
-                    "item": 1,
-                    "extras": []
-                },
-                {
-                    "id": 4,
-                    "item_price": "40.00",
-                    "total_price": "160.00",
-                    "quantity": 4,
-                    "comments": null,
-                    "extras_price": "0.0",
-                    "size": null,
-                    "placed_order": 2,
-                    "offer": 1,
-                    "item": null,
-                    "extras": []
-                }
-            ],
-            "status": 1
         }
     ]
 }
@@ -1169,8 +994,6 @@ Clear all cart items and total
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 # 📁 Collection: Admin 
-
-
 
 
 
