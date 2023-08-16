@@ -6,6 +6,7 @@ from .cartView import current_customer_cart
 from .cartView import add_to_cart
 from .cartView import remove_from_cart
 from .cartView import clear_cart
+from .MenuItemView import get_menu_items_by_category
 # from .userView import CurrentUserView
 from .userView import GroupViewSet
 from .userView import UserViewSet

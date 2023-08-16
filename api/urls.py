@@ -35,6 +35,8 @@ urlpatterns = [
         path('<int:cart_item_id>', views.remove_from_cart, name='remove_from_cart'),
         path('clear', views.clear_cart, name='clear_cart'),
     ])),
+    path('categories/<int:category_id>/menu-items/', views.get_menu_items_by_category,
+         name='get_menu_items_by_category'),
     path('signup', views.signup, name='signup'),
     path('login', views.login, name='login'),
 ]
