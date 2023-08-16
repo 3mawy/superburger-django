@@ -227,6 +227,98 @@ python -m pip install -r requirements.txt
 }
 ```
 
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+## End-point: get menu-items by category
+### Method: GET
+>```
+>http://localhost:8003/api/categories/2/menu-items
+>```
+
+
+### Response: 200
+```json
+{   
+    "category": {
+        "id": 2,
+        "name": "beef",
+        "image": "/media/categories/beef.jpeg"
+    },
+    "count": 8,
+    "menu_items": [
+        {
+            "id": 1,
+            "name": "dad's burger",
+            "name_ar": "chicken island",
+            "description": "super sauce, lettuce, tomatoes, onion",
+            "description_ar": "قطعه البرجر المشويه مع مزيج من شرائح الخضروات الفريش و صوص سوبر المميز",
+            "active": true,
+            "score": "1",
+            "category": {
+                "id": 2,
+                "name": "beef",
+                "description": "Beef Sandwiches",
+                "image": 16
+            },
+            "sizes": [
+                {
+                    "id": 1,
+                    "menu_item": 1,
+                    "size": "large",
+                    "price": "30.00"
+                },
+                {
+                    "id": 2,
+                    "menu_item": 1,
+                    "size": "double",
+                    "price": "50.00"
+                }
+            ],
+            "image": {
+                "id": 1,
+                "image": "/media/sandwiches/dads_burger.jpeg",
+                "desc": null
+            }
+        },
+        {
+            "id": 2,
+            "name": "super blue",
+            "name_ar": "chicken island",
+            "description": "super sauce, blue cheese, tomatoes, onion",
+            "description_ar": "قطعه البرجر المشويه يضاف اليها جبن الريكفورد الشهيه مع اوراق الجرجير الفريش و صوص سوبر المميز",
+            "active": true,
+            "score": "50",
+            "category": {
+                "id": 2,
+                "name": "beef",
+                "description": "Beef Sandwiches",
+                "image": 16
+            },
+            "sizes": [
+                {
+                    "id": 1,
+                    "menu_item": 2,
+                    "size": "large",
+                    "price": "20.00"
+                },
+                {
+                    "id": 2,
+                    "menu_item": 2,
+                    "size": "double",
+                    "price": "25.00"
+                }
+            ],
+            "image": {
+                "id": 2,
+                "image": "/media/sandwiches/dads_burger.jpeg",
+                "desc": null
+            }
+        }
+      
+    ]
+}
+```
+
 
 ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
 
